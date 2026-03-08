@@ -1,0 +1,135 @@
+#1
+  mon_hoc = ["Toán cao cấp", "Lập trình cơ sở", "Triết học", "Tiếng Anh"]
+print(len(mon_hoc))
+for mon in mon_hoc:
+    print(mon)
+#2
+ban_be = ["An", "Bình", "Chi"]
+ban_be.append("Dũng")
+print(ban_be)
+ban_be.pop(1)
+print(ban_be)
+#3
+colors = ["Red", "Blue", "Green", "Yellow", "Black"]
+try:
+    colors.remove("Green")
+except ValueError:
+    print("Màu Green không có trong danh sách")
+print(colors)
+#4
+nums = [15, 5, 8, 5, 20, 3]
+nums.sort()
+print("Sắp xếp tăng dần:", nums)
+nums.reverse()
+print("Đảo ngược:", nums)
+print("Số lần xuất hiện của 5:", nums.count(5))
+#5
+  arr = [float(x) for x in input("Nhập danh sách số thực: ").split()]
+for i in range(1, len(arr)):
+    key = arr[i]
+    j = i - 1
+    while j >= 0 and key > arr[j]:
+        arr[j + 1] = arr[j]
+        j -= 1
+    arr[j + 1] = key
+print("Danh sách giảm dần:", arr)
+  #6
+  arr = [int(x) for x in input("Nhập danh sách số nguyên: ").split()]
+count = 0
+n = len(arr)
+for i in range(n):
+    for j in range(0, n - i - 1):
+        if arr[j] > arr[j + 1]:
+            arr[j], arr[j + 1] = arr[j + 1], arr[j]
+            count += 1
+print("Mảng sau khi sắp xếp:", arr)
+print("Số lần hoán đổi:", count)
+  #7
+  arr = [int(x) for x in input("Nhập danh sách số: ").split()]
+x = int(input("Nhập số cần tìm: "))
+found = -1
+for i in range(len(arr)):
+    if arr[i] == x:
+        found = i
+        break
+print(f"Chỉ số của {x} là: {found}")
+  #8
+  arr = [int(x) for x in input("Nhập danh sách: ").split()]
+for x in arr:
+    if x > 10:
+        print("Số đầu tiên > 10 là:", x)
+        break
+  #9
+ # Nhập danh sách số từ người dùng
+input_data = input("Nhập danh sách số (cách nhau bởi khoảng trắng): ")
+arr = [int(x) for x in input_data.split()]
+
+print("Các số lẻ trong danh sách là:")
+for x in arr:
+    if x % 2 != 0:
+        print(x, end=" ")
+print() # Xuống dòng
+  #10
+# Nhập danh sách số từ người dùng
+input_data = input("Nhập danh sách số (cách nhau bởi khoảng trắng): ")
+arr = [int(x) for x in input_data.split()]
+
+cac_so_chan = []
+tong_chan = 0
+
+for x in arr:
+    if x % 2 == 0:
+        cac_so_chan.append(x)
+        tong_chan += x
+
+print("Các số chẵn trong danh sách:", cac_so_chan)
+print("Tổng của các số chẵn là:", tong_chan)
+  #11
+  arr = [int(x) for x in input("Nhập mảng: ").split()]
+print("Giá trị lớn nhất:", max(arr))
+print("Giá trị nhỏ nhất:", min(arr))
+  #12
+  m = int(input("Nhập số hàng m: "))
+n = int(input("Nhập số cột n: "))
+
+def nhap_ma_tran(ten):
+    print(f"Nhập ma trận {ten}:")
+    return [[int(input(f"{ten}[{i}][{j}] = ")) for j in range(n)] for i in range(m)]
+
+mt1 = nhap_ma_tran("A")
+mt2 = nhap_ma_tran("B")
+tong = [[mt1[i][j] + mt2[i][j] for j in range(n)] for i in range(m)]
+
+print("Ma trận tổng:")
+for hang in tong:
+    print(hang)
+      #13
+  s = input("Nhập chuỗi: ")
+if s == s[::-1]:
+    print("Đây là chuỗi đối xứng")
+else:
+    print("Không đối xứng")
+  #14
+  def count_vowels(s):
+    vowels = "aeiou"
+    count = 0
+    for char in s.lower():
+        if char in vowels:
+            count += 1
+    return count
+
+text = input("Nhập chuỗi: ")
+print("Số lượng nguyên âm:", count_vowels(text))
+  #15
+  s = input("Nhập chuỗi: ")
+
+# Cách 1: Slicing
+print("Cách 1 (Slicing):", s[::-1])
+
+# Cách 2: Không dùng Slicing
+dao_nguoc = ""
+for i in range(len(s) - 1, -1, -1):
+    dao_nguoc += s[i]
+print("Cách 2 (Loop):", dao_nguoc)
+  
+  
