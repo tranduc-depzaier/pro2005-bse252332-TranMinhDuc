@@ -1,0 +1,123 @@
+#1
+n = int(input("Nhập một số từ 1 đến 9: "))
+if 1 <= n <= 9:
+    for i in range(1, 10):
+        print(f"{n} x {i} = {n * i}")
+else:
+    print("Số nhập vào không nằm trong khoảng 1-9.")
+  #2
+  import math
+
+n = int(input("Nhập một số dương: "))
+is_prime = True
+
+if n < 2:
+    is_prime = False
+else:
+    for i in range(2, int(math.sqrt(n)) + 1):
+        if n % i == 0:
+            is_prime = False
+            break
+
+if is_prime:
+    print(f"{n} là số nguyên tố.")
+else:
+    print(f"{n} không phải là số nguyên tố.")
+  #3
+  n = int(input("Nhập n: "))
+a, b = 0, 1
+count = 0
+while count < n:
+    print(a, end=" ")
+    a, b = b, a + b
+    count += 1
+  #4
+  n = input("Nhập một số: ")
+tong = sum(int(chu_so) for chu_so in n if chu_so.isdigit())
+print(f"Tổng các chữ số là: {tong}")
+  #5
+  chuoi = input("Nhập chuỗi: ")
+ky_tu = input("Nhập ký tự cần đếm: ")
+print(f"Ký tự '{ky_tu}' xuất hiện {chuoi.count(ky_tu)} lần.")
+  #6
+  def giai_thua(n):
+    if n == 0 or n == 1:
+        return 1
+    return n * giai_thua(n - 1)
+
+n = int(input("Nhập số cần tính giai thừa: "))
+print(f"{n}! = {giai_thua(n)}")
+  #7
+  a = int(input("Nhập số thứ nhất: "))
+b = int(input("Nhập số thứ hai: "))
+
+while b:
+    a, b = b, a % b
+
+print(f"Ước số chung lớn nhất là: {a}")
+#8
+  n = input("Nhập một số dương: ")
+print(f"Số đảo ngược là: {n[::-1]}")
+#9
+n = input("Nhập số nguyên dương 5 chữ số: ")
+if len(n) == 5 and n.isdigit():
+    print(f"Chữ số lớn nhất là: {max(n)}")
+else:
+    print("Vui lòng nhập đúng 5 chữ số.")
+#10
+def tinh_tong(n):
+    if n == 1:
+        return 1
+    return n + tinh_tong(n - 1)
+
+n = int(input("Nhập n: "))
+print(f"Tổng từ 1 đến {n} là: {tinh_tong(n)}")
+#11
+dtb = float(input("Nhập điểm trung bình: "))
+if dtb >= 8.0:
+    print("Xếp loại: Giỏi")
+elif 6.5 <= dtb <= 7.9:
+    print("Xếp loại: Khá")
+elif 5.0 <= dtb <= 6.4:
+    print("Xếp loại: Trung bình")
+else:
+    print("Xếp loại: Yếu")
+#12
+n = int(input("Nhập n: "))
+tong_le = 0
+for i in range(1, n + 1):
+    if i % 2 != 0:
+        tong_le += i
+print(f"Tổng các số lẻ từ 1 đến {n} là: {tong_le}")
+#13
+mat_khau = ""
+while mat_khau != "python123":
+    mat_khau = input("Nhập mật khẩu: ")
+print("Đăng nhập thành công!")
+#14
+import math
+
+n = int(input("Nhập số n: "))
+is_prime = True
+
+if n < 2:
+    is_prime = False
+else:
+    # Chạy vòng lặp từ 2 đến căn bậc hai của n
+    for i in range(2, int(math.sqrt(n)) + 1):
+        if n % i == 0:
+            is_prime = False
+            break
+
+if is_prime:
+    print(f"{n} là số nguyên tố")
+else:
+    print(f"{n} không phải là số nguyên tố")
+#15
+n = int(input("Nhập một số nguyên dương: "))
+tong = 0
+temp = n
+while temp > 0:
+    tong += temp % 10
+    temp //= 10
+print(f"Tổng các chữ số của {n} là: {tong}")
