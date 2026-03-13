@@ -1,0 +1,55 @@
+#1
+  def thong_ke_tuple(numbers):
+    tong = sum(numbers)
+    max_val = max(numbers)
+    min_val = min(numbers)
+    return tong, max_val, min_val
+data = (10, 5, 8, 20, 3)
+print(thong_ke_tuple(data))
+#2
+  def tinh_trung_binh:
+    if not bang_diem:
+        return 0
+    tong_diem = sum(bang_diem.values())
+    so_sv = len(bang_diem)
+    return tong_diem / so_sv
+sinh_vien = {"An": 8.5, "Bình": 7.0, "Chi": 9.0}
+print(f"Điểm trung bình: {tinh_trung_binh(sinh_vien)}")
+#3
+  def check_key(d, key):
+    if key in d:
+        print(f"Key '{key}' có tồn tại.")
+    else:
+        print(f"Key '{key}' không tồn tại.")
+my_dict = {"name": "Python", "version": 3.12}
+check_key(my_dict, "name")
+  #4
+  class Hoa:
+    def __init__(self, ten, mau):
+        self.ten = ten
+        self.mau = mau
+    def __str__(self):
+        return f"Hoa: {self.ten}, Màu: {self.mau}"
+hoa_hong = Hoa("Hồng", "Đỏ")
+print(hoa_hong)
+#5
+class Product:
+    def __init__(self, price):
+        self._price = price if price > 0 else 0
+
+    @property
+    def price(self):
+        return self._price
+
+    @price.setter
+    def price(self, value):
+        if value > 0:
+            self._price = value
+        else:
+            print("Giá phải lớn hơn 0!")
+    def __str__(self):
+        return f"Product Price: {self._price}"
+sp = Product(100)
+sp.price = 150 
+sp.price = -50
+print(sp)
