@@ -89,6 +89,32 @@ class dog(animal):
         print(f"{self.name} keu: meow moew")
 my_dog = dog("tiendat")
 my_dog.sound()
+#10
+class SinhVien:
+    def __init__(self, diem):
+        self.diem = diem
+    def __eq__(self, other):
+        if isinstance(other, SinhVien):
+            return self.diem == other.diem
+        return False
+sv1 = SinhVien(8.5)
+sv2 = SinhVien(8.5)
+sv3 = SinhVien(7.0)
+print(f"sv1 == sv2: {sv1 == sv2}")
+print(f"sv1 == sv3: {sv1 == sv3}")
+#11
+class SinhVien:
+    dem = 0
+    def __init__(self, diem):
+        self.diem = diem
+        SinhVien.dem += 1
+    @classmethod
+    def so_luong_sv(cls):
+        return f"Số sinh viên đã tạo: {cls.dem}"
+sv1 = SinhVien(9)
+sv2 = SinhVien(8)
+sv3 = SinhVien(10)
+print(SinhVien.so_luong_sv())
 
 
 
