@@ -1,56 +1,66 @@
 #1
-n = int(input("Nhập một số nguyên: "))
-if n < 0:
-    print("Lỗi: Vui lòng nhập một số không âm!")
-else:
-    remainder = n % 2
-    print(f"Phần dư của {n} khi chia cho 2 là: {remainder}")
+PI = 3.14
+r = float(input("Nhập bán kính hình tròn: "))
+chu_vi = 2 * PI * r
+print(f"Chu vi hình tròn là: {chu_vi}")
 #2
-s = input("Nhập một chuỗi: ")
-print(f"Chiều dài của chuỗi là: {len(s)}")
-print(f"Chuỗi sau khi chuyển thành chữ hoa: {s.upper()}")
+names = []
+for i in range(5):
+    name = input(f"Nhập tên người thứ {i+1}: ")
+    names.append(name)
+print("Danh sách ban đầu:", names)
+if len(names) >= 2:
+    del names[1]
+    print("Danh sách sau khi xóa người thứ hai:", names)
 #3
-i = 1
-tong = 0
-print("Các số lẻ từ 1 đến 30 là:")
-while i <= 30:
-    if i % 2 != 0:
-        print(i, end=" ")
-        tong += i
-    i += 1
-print(f"\nTổng của các số lẻ trên là: {tong}")
+def is_prime(n):
+    if n < 2: return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0: return False
+    return True
+
+arr = list(map(int, input("Nhập các số tự nhiên (cách nhau bởi dấu cách): ").split()))
+
+odd_numbers = [x for x in arr if x % 2 != 0]
+print(f"Các số lẻ: {odd_numbers} - Tổng số lượng: {len(odd_numbers)}")
+
+prime_numbers = [x for x in arr if is_prime(x)]
+print(f"Các số nguyên tố: {prime_numbers}")
 #4
-def tinh_tong_de_quy(n):
-    if n == 1:
-        return 1
-    return n + tinh_tong_de_quy(n - 1)
-n = int(input("Nhập n: "))
-if n > 0:
-    print(f"Tổng từ 1 đến {n} là: {tinh_tong_de_quy(n)}")
-else:
-    print("Vui lòng nhập số nguyên dương.")
+class Book:
+    def __init__(self, name, price):
+        self._name = name
+        self._price = price
+    @property
+    def price(self):
+        return self._price
+    @price.setter
+    def price(self, value):
+        self._price = value
+my_book = Book("Lập trình Python", 50000)
+print(f"Giá của sách: {my_book.price}")
 #5
-class Flower:
-    def __init__(self, color):
-        self._color = color  # Thuộc tính ẩn danh (protected)
-    def get_color(self):
-        return self._color
-    def set_color(self, new_color):
-        self._color = new_color
-my_flower = Flower("Red")
-print(f"Màu sắc ban đầu: {my_flower.get_color()}")
-my_flower.set_color("Yellow")
-print(f"Màu sắc sau khi thay đổi: {my_flower.get_color()}")
+data = [
+    ("Book 1", 30000),
+    ("Book 2", 50000),
+    ("Book 3", 100000)
+]
+tong = 900000
+with open("books.txt", "w", encoding="utf-8") as f:
+    for name, price in data:
+        f.write(f"{name};{price}\n")
+    f.write(f"Tong;{tong}")
+print("Đã tạo file books.txt thành công.")
 #6
-def selection_sort(arr):
-    n = len(arr)
-    for i in range(n):
-        min_idx = i
-        for j in range(i + 1, n):
-            if arr[j] < arr[min_idx]:
-                min_idx = j
-        arr[i], arr[min_idx] = arr[min_idx], arr[i]
-    return arr
-numbers = [64, 25, 12, 22, 11]
-sorted_numbers = selection_sort(numbers)
-print(f"Dãy sau khi sắp xếp: {sorted_numbers}")
+layers = {
+    "layer-11": {
+        "layer-21": 90,
+        "layer-22": {
+            "layer 31": 43
+        }
+    },
+    "layer-12": 35
+}
+print("Giá trị layer-12:", layers["layer-12"])
+val_31 = layers["layer-11"]["layer-22"]["layer 31"]
+print("Giá trị layer-31:", val_31)
